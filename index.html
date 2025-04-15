@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para ti, mi amor 💗</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      padding: 20px;
+    }
+    .container {
+      max-width: 450px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #d63384;
+      margin-bottom: 20px;
+    }
+    #counter {
+      font-size: 5rem;
+      color: #ff4d4d;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease;
+    }
+    #message {
+      display: none;
+      opacity: 0;
+      animation: fadeInUp 2s ease-in-out forwards;
+    }
+    .photo {
+      width: 200px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 20px;
+      animation: fadeInUp 2s ease-in-out forwards;
+    }
+    .flower {
+      font-size: 4rem;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite;
+    }
+    p {
+      font-size: 1.3rem;
+      color: #6f42c1;
+      line-height: 1.6;
+    }
+    .gift-btn {
+      margin-top: 25px;
+      background-color: #d63384;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background-color 0.3s ease;
+    }
+    .gift-btn:hover {
+      background-color: #b02a6f;
+    }
+    .kiss-section {
+      margin-top: 30px;
+      display: none;
+      animation: fadeInUp 2s ease-in-out forwards;
+    }
+    .kiss-text {
+      font-size: 1.2rem;
+      color: #e83e8c;
+      margin-bottom: 10px;
+    }
+    .kiss-video {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+      margin-top: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mensaje especial para la mujer más especial de mi vida...</h1>
+    <div id="counter">5</div>
+    <div id="message">
+      <img src="img.jpg" alt="Foto de nosotros" class="photo">
+      <div class="flower">🌷💗</div>
+      <p>
+        Yuli 🌸, eres el regalo más hermoso que la vida me ha dado 🎁.<br>
+        Tu ternura, tu risa y tu forma de amar han transformado mi mundo ✨.<br>
+        Te amo con cada latido de mi corazón ❤️, y ansío ya poder tenerte en mis brazos 🤗.<br>
+        Gracias por existir, mi vida y mi amor eterno 💗.
+      </p>
+
+      <button class="gift-btn" onclick="mostrarBeso()">Un regalo para ti 🎁</button>
+
+      <div class="kiss-section" id="kiss">
+        <p class="kiss-text">Toma un beso solo para ti 😘</p>
+        <video class="kiss-video" src="beso.mp4" autoplay muted loop playsinline></video>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let count = 5;
+    const counterEl = document.getElementById('counter');
+    const messageEl = document.getElementById('message');
+    const kissSection = document.getElementById('kiss');
+
+    const countdown = setInterval(() => {
+      count--;
+      counterEl.textContent = count;
+      counterEl.style.transform = 'scale(1.2)';
+      setTimeout(() => counterEl.style.transform = 'scale(1)', 200);
+
+      if (count === 0) {
+        clearInterval(countdown);
+        counterEl.style.display = 'none';
+        messageEl.style.display = 'block';
+      }
+    }, 1000);
+
+    function mostrarBeso() {
+      kissSection.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
